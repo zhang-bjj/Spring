@@ -1,0 +1,15 @@
+#端口号
+server:
+  port: 8689
+
+#数据源配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1111aaaa
+    url: jdbc:mysql://localhost:3306/onenine?characterEncoding=utf-8&useUnicode=true
+
+mybatis:
+  #映射配置文件路径
+  mapper-locations: classpath:mapper/*.xml
