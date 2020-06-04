@@ -13,3 +13,10 @@ spring:
 mybatis:
   #映射配置文件路径
   mapper-locations: classpath:mapper/*.xml
+
+#pagehelper分页插件
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
