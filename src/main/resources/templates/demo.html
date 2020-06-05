@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>菜鸟教程(runoob.com)</title>
+    <style>
+        body {
+            background-color: paleturquoise;
+        }
+
+        #d1 {
+            background-color: white;
+            height: 1000px;
+        }
+
+        .u1 {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+        }
+
+        .u1 li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+        }
+
+        .u1 li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .u1 li a:hover:not(.active) {
+            background-color: #555;
+            color: white;
+        }
+
+
+        .u2 {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        .u2 li {
+            float: left;
+        }
+
+        .u2 li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .u2 li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .u2 .active {
+            background-color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="d1">
+        <h2>垂直导航条</h2>
+        <p>在点击了选项后，我们可以添加 "active" 类来标准哪个选项被选中。</p>
+
+        <ul class="u1">
+            <li><a class="active" href="#home">主页</a></li>
+            <li><a href="#news">新闻</a></li>
+            <li><a href="#contact">联系</a></li>
+            <li><a href="#about">关于</a></li>
+        </ul>
+
+        <hr>
+
+        <ul class="u2">
+            <li><a href="#home">主页</a></li>
+            <li><a href="#news">新闻</a></li>
+            <li><a href="#contact">联系</a></li>
+            <li style="float:right"><a class="active" href="#about">关于</a></li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

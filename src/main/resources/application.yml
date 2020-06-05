@@ -5,18 +5,59 @@ server:
 #数据源配置
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    name: bjj_test
+    #基本属性
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE&serverTimezone=UTC&allowMultiQueries=true
     username: root
-    password: 1111aaaa
-    url: jdbc:mysql://localhost:3306/onenine?characterEncoding=utf-8&useUnicode=true
+    password: mysql
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid相关配置
+    druid:
+      #监控统计拦截的filters
+      filters: stat
+      #配置初始化大小/最小/最大
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      #获取连接等待超时时间
+      max-wait: 60000
+      #间隔多久进行一次检测，检测需要关闭的空闲连接
+      time-between-eviction-runs-millis: 60000
+      #一个连接在池中最小生存的时间
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
 
 mybatis:
-  #映射配置文件路径
-  mapper-locations: classpath:mapper/*.xml
+  #映射文件所在路径
+  mapper-locations: classpath:com.bjj.dao/*.xml
+  #pojo类所在包路径
+  type-aliases-package: com.bjj.demo
+  configuration:
+    #配置项：开启下划线到驼峰的自动转换. 作用：将数据库字段根据驼峰规则自动注入到对象属性。
+    map-underscore-to-camel-case: true
 
-#pagehelper分页插件
+#pagehelper
 pagehelper:
   helperDialect: mysql
   reasonable: true
   supportMethodsArguments: true
   params: count=countSql
+
+logging:
+  level:
+    #打印SQL信息
+    com.bjj.dao: debug
