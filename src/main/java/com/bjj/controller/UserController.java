@@ -26,14 +26,14 @@ public class UserController {
         return "demo";
     }
 
-    @PostMapping("add")
     @ResponseBody
+    @PostMapping("add")
     public int addUser(@RequestBody User user) {
         return userService.add(user);
     }
 
-    @GetMapping("all")
     @ResponseBody
+    @GetMapping("all")
     public PageInfo findAllUser(
             @RequestParam(name = "pageNum", required = false, defaultValue = "1") int pageNum,
             @RequestParam(name = "pageSize", required = false, defaultValue = "10") int pageSize) {
@@ -41,20 +41,20 @@ public class UserController {
         return userService.findAllUser(pageNum,pageSize);
     }
 
-    @GetMapping("get/{name}")
     @ResponseBody
+    @GetMapping("get/{name}")
     public PageInfo findByName(@PathVariable String name) {
         return userService.findByName(name);
     }
 
-    @PostMapping("insert/batch")
     @ResponseBody
+    @PostMapping("insert/batch")
     public Integer insertBatch(@RequestBody List<User> userList) {
         return userService.insertBatch(userList);
     }
 
-    @PostMapping("update/batch")
     @ResponseBody
+    @PostMapping("update/batch")
     public Integer updateBatch(@RequestBody List<User> userList) {
         return userService.updateBatch(userList);
     }
