@@ -35,6 +35,8 @@ spring:
   devtools:
     restart:
       enabled: true
+  main:
+    allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
 
 mybatis:
   #映射文件所在路径
@@ -56,3 +58,6 @@ logging:
   level:
     #打印SQL信息
     com.bjj.dao: debug
+
+scheduler:
+  time: 20
