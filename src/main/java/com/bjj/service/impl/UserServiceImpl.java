@@ -16,7 +16,6 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-
     @SuppressWarnings("all")
     @Autowired
     private UserMapper userMapper;

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement // 开启事务管理
 @EnableScheduling            // 来开启定时任务
-@MapperScan(basePackages = {"com.bjj"}) // 扫描包路径
+@MapperScan(basePackages = {"com.bjj.dao"}) // 扫描包路径
 public class SpringbootdemoApplication {
 
     public static void main(String[] args) {

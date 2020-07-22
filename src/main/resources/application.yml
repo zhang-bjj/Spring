@@ -39,10 +39,10 @@ spring:
     allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
 
 mybatis:
+  #pojo类所在包路径
+  type-aliases-package: com.bjj.model
   #映射文件所在路径
   mapper-locations: classpath:com.bjj.dao/*.xml
-  #pojo类所在包路径
-  type-aliases-package: com.bjj.demo
   configuration:
     #配置项：开启下划线到驼峰的自动转换. 作用：将数据库字段根据驼峰规则自动注入到对象属性。
     map-underscore-to-camel-case: true
