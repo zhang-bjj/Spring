@@ -1,5 +1,9 @@
 package com.baidu.notebook;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
 /**
  * @ClassName: Demo
  * @Description: TODO
@@ -41,6 +45,36 @@ public class Demo {
         System.out.println(integer1);
         System.out.println(Integer.MIN_VALUE);
         System.out.println(Integer.MAX_VALUE);
+
+        Use use = new Use();
+        MacMini macMini = new MacMini() {
+            @Override
+            public String getCPU(String cpu) {
+                if("".equals(cpu)||null==cpu) cpu = "i5";
+                return cpu;
+            }
+        };
+        use.use(macMini);
+        System.out.println("CPU使用的是"+macMini.getCPU(null));
+
+        Collection<String> c = new ArrayList();
+        c.add("123");
+        c.add("456");
+        c.add("789");
+        Iterator i = c.iterator();
+        while (i.hasNext()) {
+            try {
+                if (i.next().equals("789")) {
+                    c.add("456");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                break;
+            }
+        }
+        System.out.println("end");
+        System.out.println("Aa".hashCode());
+        System.out.println("BB".hashCode());
     }
 
 }

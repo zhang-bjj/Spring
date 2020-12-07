@@ -18,7 +18,7 @@ public class Demo {
         j.jump();
         a.eat();
         a.sleep();
-        System.out.println(getAddress("天津"));;
+        System.out.println(getAddress("天津"));
     }
 
     public static String getAddress(String address){
