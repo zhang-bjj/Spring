@@ -11,15 +11,25 @@ public class Persion {
 
     private String name;
     private String age;
+    private int sum;
 
     public Persion() {
         System.out.println("This is Persion constructor methods.");
     }
 
-    public Persion(String name, String age) {
+    public Persion(String name, String age, int sum) {
         this.name = name;
         this.age = age;
+        this.sum = sum;
         System.out.println("This is Persion "+this.name+", "+this.age+" constructor methods.");
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
     }
 
     public String getName() {

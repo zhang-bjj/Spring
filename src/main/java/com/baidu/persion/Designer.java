@@ -13,8 +13,8 @@ public class Designer extends Persion {
         System.out.println("This is Designer constructor methods.");
     }
 
-    public Designer(String name, String age) {
-        super(name, age);
+    public Designer(String name, String age, int sum) {
+        super(name, age, sum);
     }
 
     @Override
