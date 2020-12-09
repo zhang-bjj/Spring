@@ -9,8 +9,26 @@ package com.baidu.animal;
  **/
 public class Cat extends Animal {
 
+    private String food;
+
+    public Cat(){
+        System.out.println("吃鱼");
+    }
+
+    public Cat(String food){
+        this.food = food;
+        System.out.println("吃"+food);
+    }
+
     @Override
     public void eat() {
         System.out.println("Cats eat fish.");
+    }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "food='" + food + '\'' +
+                '}';
     }
 }

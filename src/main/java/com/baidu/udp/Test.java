@@ -19,11 +19,15 @@ public class Test {
         byte[] by = new byte[1024];
         DatagramPacket dp = new DatagramPacket(by, by.length);
 
-        socket.receive(dp);
+        while (true){
 
-        System.out.println(new String(dp.getData(), 0, dp.getLength()));
+            socket.receive(dp);
 
-        socket.close();
+            System.out.println(new String(dp.getData(), 0, dp.getLength()));
+
+        }
+
+//        socket.close();
     }
 
 }
