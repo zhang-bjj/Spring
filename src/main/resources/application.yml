@@ -11,7 +11,7 @@ spring:
     username: root
     password: mysql
     type: com.alibaba.druid.pool.DruidDataSource
-    #druid相关配置
+    #druid连接池相关配置
     druid:
       #监控统计拦截的filters
       filters: stat
@@ -37,6 +37,11 @@ spring:
       enabled: true
   main:
     allow-bean-definition-overriding: true #当遇到同样名字的时候，是否允许覆盖注册
+  #springsecurity用户名/密码
+  security:
+    user:
+      name: bjj
+      password: 1111aaaa
 
 mybatis:
   #pojo类所在包路径
@@ -61,3 +66,5 @@ logging:
 
 scheduler:
   time: 20
+
+
