@@ -1,0 +1,39 @@
+server:
+  port: 8082
+  servlet:
+    #配置项目的访问路径
+    #context-path: /bjj
+spring:
+  #选择要激活那个环境(开发/生产)模块
+  profiles:
+    active: prod
+  devtools:
+    restart:
+      enabled: false  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+    freemarker:
+      cache: false    #页面不加载缓存，修改即时生效
+
+##注入实体类参数
+bjj:
+  name: zhangsan
+  sex: man
+  email: 123@123.com
+  maps: {code: 1,message: success}
+  lists:
+    - code
+    - girl
+    - music
+
+---
+server:
+  port: 8083
+spring:
+  profiles: dev #开发环境
+
+---
+server:
+  port: 8084
+spring:
+  profiles: prod  #生产环境
