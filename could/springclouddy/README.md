@@ -1,96 +1,82 @@
-# ÏîÄ¿¼ò½é
+# é¡¹ç›®ç®€ä»‹
 
-SpringCloudÎ¢·şÎñ¿ò¼ÜÊµÕ½£¨»ùÓÚGreenwich°æ±¾£¬SpringBoot2.1.7°æ±¾ÊµÏÖ£©
+SpringCloudå¾®æœåŠ¡æ¡†æ¶å®æˆ˜ï¼ˆåŸºäºGreenwichç‰ˆæœ¬ï¼ŒSpringBoot2.1.7ç‰ˆæœ¬å®ç°ï¼‰
 
-ÄÚÈİÖ÷Òª°üº¬£º
+å†…å®¹ä¸»è¦åŒ…å«ï¼š
 
-| Î¢·şÎñ½ÇÉ«                 | ¶ÔÓ¦µÄ¼¼ÊõÑ¡ĞÍ                              |
+| å¾®æœåŠ¡è§’è‰²                 | å¯¹åº”çš„æŠ€æœ¯é€‰å‹                              |
 | --------------------- | ------------------------------------ |
-| ×¢²áÖĞĞÄ(Register Server) | Eureka                               |
-| ·şÎñÌá¹©Õß                 | spring mvc¡¢spring-data-jpa¡¢h2µÈ       |
-| ·şÎñÏû·ÑÕß                 | Ribbon/FeignÏû·Ñ·şÎñÌá¹©ÕßµÄ½Ó¿Ú               |
-| ÈÛ¶ÏÆ÷                   | Hystrix£¬°üÀ¨Hystrix DashboardÒÔ¼°Turbine |
-| ÅäÖÃ·şÎñ                  | Spring Cloud Config Server           |
+| æ³¨å†Œä¸­å¿ƒ(Register Server) | Eureka                               |
+| æœåŠ¡æä¾›è€…                 | spring mvcã€spring-data-jpaã€h2ç­‰       |
+| æœåŠ¡æ¶ˆè´¹è€…                 | Ribbon/Feignæ¶ˆè´¹æœåŠ¡æä¾›è€…çš„æ¥å£               |
+| ç†”æ–­å™¨                   | Hystrixï¼ŒåŒ…æ‹¬Hystrix Dashboardä»¥åŠTurbine |
+| é…ç½®æœåŠ¡                  | Spring Cloud Config Server           |
 | API Gateway           | Zuul                                 |
-| ·şÎñÁ´Â·×·×Ù           | Sleuth                                 |
+| æœåŠ¡é“¾è·¯è¿½è¸ª           | Sleuth                                 |
 
-½Ì³ÌµØÖ·ÓĞ£¨³ÖĞø¸üĞÂÖĞ...£©£º
+æ•™ç¨‹åœ°å€æœ‰ï¼ˆæŒç»­æ›´æ–°ä¸­...ï¼‰ï¼š
 
-1. [SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ò»£©- ·şÎñµÄ×¢²áÓë·¢ÏÖ(Eureka)](https://hemin.blog.csdn.net/article/details/107317235)
-2. [SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨¶ş£©- ·şÎñÌá¹©Õß](https://hemin.blog.csdn.net/article/details/107319172)
-3. [SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Èı£©- ·şÎñÏû·ÑÕß£¬ÊµÏÖ·½Ê½Ò»(ribbon)](https://hemin.blog.csdn.net/article/details/107320219)
-4. [SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨ËÄ£©- ·şÎñÏû·ÑÕß£¬ÊµÏÖ·½Ê½¶ş(feign)](https://hemin.blog.csdn.net/article/details/107320748)
-5. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Îå£©- ¸ß¿ÉÓÃµÄ·şÎñ×¢²áÖĞĞÄ(Eureka)
-6. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Áù£©- ¶ÏÂ·Æ÷/·şÎñÏû·ÑÕß(ribbon + hystrix)
-7. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Æß£©- ¶ÏÂ·Æ÷/·şÎñÏû·ÑÕß(feign + hystrix)
-8. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨°Ë£©- ¶¯Ì¬Â·ÓÉÍø¹Ø(zuul)
-9. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨¾Å£©- ¶¯Ì¬Â·ÓÉÍø¹ØÏŞÁ÷(zuul+ratelimit)
-10. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ê®£©- ·Ö²¼Ê½ÅäÖÃÖĞĞÄ
-11. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ê®Ò»£©- ¸ß¿ÉÓÃµÄ·Ö²¼Ê½ÅäÖÃÖĞĞÄ
-12. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ê®¶ş£©- ¶ÏÂ·Æ÷¼à¿Ø(hystrix dashboard)
-13. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ê®Èı£©- Â·Æ÷¾ÛºÏ¼à¿Ø(hystrix turbine)
-14. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ê®ËÄ£©- ·şÎñÁ´Â·×·×Ù
-15. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ê®Îå£©- ÏûÏ¢×ÜÏßbus
-16. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ê®Áù£©- Íø¹Ø¼øÈ¨ÈÏÖ¤
-17. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ê®Æß£©- SpringBoot Admin¼à¿ØÌ¨
-18. SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì£¨Ê®°Ë£©- ÏîÄ¿ÊµÕ½/Î¢·şÎñ¼Ü¹¹Éè¼Æ
+1. [SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆä¸€ï¼‰- æœåŠ¡çš„æ³¨å†Œä¸å‘ç°(Eureka)](https://hemin.blog.csdn.net/article/details/107317235)
+2. [SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆäºŒï¼‰- æœåŠ¡æä¾›è€…](https://hemin.blog.csdn.net/article/details/107319172)
+3. [SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆä¸‰ï¼‰- æœåŠ¡æ¶ˆè´¹è€…ï¼Œå®ç°æ–¹å¼ä¸€(ribbon)](https://hemin.blog.csdn.net/article/details/107320219)
+4. [SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆå››ï¼‰- æœåŠ¡æ¶ˆè´¹è€…ï¼Œå®ç°æ–¹å¼äºŒ(feign)](https://hemin.blog.csdn.net/article/details/107320748)
+5. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆäº”ï¼‰- é«˜å¯ç”¨çš„æœåŠ¡æ³¨å†Œä¸­å¿ƒ(Eureka)
+6. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆå…­ï¼‰- æ–­è·¯å™¨/æœåŠ¡æ¶ˆè´¹è€…(ribbon + hystrix)
+7. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆä¸ƒï¼‰- æ–­è·¯å™¨/æœåŠ¡æ¶ˆè´¹è€…(feign + hystrix)
+8. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆå…«ï¼‰- åŠ¨æ€è·¯ç”±ç½‘å…³(zuul)
+9. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆä¹ï¼‰- åŠ¨æ€è·¯ç”±ç½‘å…³é™æµ(zuul+ratelimit)
+10. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆåï¼‰- åˆ†å¸ƒå¼é…ç½®ä¸­å¿ƒ
+11. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆåä¸€ï¼‰- é«˜å¯ç”¨çš„åˆ†å¸ƒå¼é…ç½®ä¸­å¿ƒ
+12. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆåäºŒï¼‰- æ–­è·¯å™¨ç›‘æ§(hystrix dashboard)
+13. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆåä¸‰ï¼‰- è·¯å™¨èšåˆç›‘æ§(hystrix turbine)
+14. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆåå››ï¼‰- æœåŠ¡é“¾è·¯è¿½è¸ª
+15. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆåäº”ï¼‰- æ¶ˆæ¯æ€»çº¿bus
+16. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆåå…­ï¼‰- ç½‘å…³é‰´æƒè®¤è¯
+17. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆåä¸ƒï¼‰- SpringBoot Adminç›‘æ§å°
+18. SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹ï¼ˆåå…«ï¼‰- é¡¹ç›®å®æˆ˜/å¾®æœåŠ¡æ¶æ„è®¾è®¡
 
-# ×¼±¸
+# å‡†å¤‡
 
-## »·¾³×¼±¸£º
+## ç¯å¢ƒå‡†å¤‡ï¼š
 
-| ¹¤¾ß    | °æ±¾»òÃèÊö                |
+| å·¥å…·    | ç‰ˆæœ¬æˆ–æè¿°                |
 | ----- | -------------------- |
 | JDK   | 1.8                  |
-| IDE ? | Eclipse »òÕß IntelliJ IDEA |
+| IDE ? | Eclipse æˆ–è€… IntelliJ IDEA |
 | Maven | 3.x                  |
 
-## Ö÷»úÃûÅäÖÃ£º
+## ä¸»æœºåé…ç½®ï¼š
 
-| Ö÷»úÃûÅäÖÃ£¨C:\Windows\System32\drivers\etc\hostsÎÄ¼ş£© |
+| ä¸»æœºåé…ç½®ï¼ˆC:\Windows\System32\drivers\etc\hostsæ–‡ä»¶ï¼‰ |
 | ---------------------------------------- |
 | 127.0.0.1 discovery config-server gateway movie user feign ribbon |
 
-## Ö÷»ú¹æ»®£º
+## ä¸»æœºè§„åˆ’ï¼š
 
-| ÏîÄ¿Ãû³Æ                                     | ¶Ë¿Ú   | ÃèÊö                     | URL             |
+| é¡¹ç›®åç§°                                     | ç«¯å£   | æè¿°                     | URL             |
 | ---------------------------------------- | ---- | ---------------------- | --------------- |
-| microservice-api-gateway                 | 8050 | API Gateway            | Ïê¼ûÎÄÕÂ            |
-| microservice-config-client               | 8041 | ÅäÖÃ·şÎñµÄ¿Í»§¶Ë               | Ïê¼ûÎÄÕÂ            |
-| microservice-config-server               | 8040 | ÅäÖÃ·şÎñ                   | Ïê¼ûÎÄÕÂ            |
+| microservice-api-gateway                 | 8050 | API Gateway            | è¯¦è§æ–‡ç«             |
+| microservice-config-client               | 8041 | é…ç½®æœåŠ¡çš„å®¢æˆ·ç«¯               | è¯¦è§æ–‡ç«             |
+| microservice-config-server               | 8040 | é…ç½®æœåŠ¡                   | è¯¦è§æ–‡ç«             |
 | microservice-consumer-movie-feign        | 8020 | Feign Demo             |         |
 | microservice-consumer-movie-feign-with-hystrix | 8021 | Feign Hystrix Demo     |        |
 | microservice-consumer-movie-feign-with-hystrix-stream | 8022 | Hystrix Dashboard Demo |        |
 | microservice-consumer-movie-ribbon       | 8010 | Ribbon Demo            |        |
 | microservice-consumer-movie-ribbon-with-hystrix | 8011 | Ribbon Hystrix Demo    |      |
-| microservice-discovery-eureka            | 8761 | ×¢²áÖĞĞÄ                   |                |
-| microservice-hystrix-dashboard           | 8030 | hystrix¼à¿Ø              |  |
+| microservice-discovery-eureka            | 8761 | æ³¨å†Œä¸­å¿ƒ                   |                |
+| microservice-hystrix-dashboard           | 8030 | hystrixç›‘æ§              |  |
 | microservice-hystrix-turbine             | 8031 | turbine                |  |
-| microservice-provider-user               | 8000 | ·şÎñÌá¹©Õß                  |              |
-| microservice-consumer-zipkin-hi               | 8988 | ·şÎñÁ´Â·×·×Ù£¬·şÎñ1                 |              |
-| microservice-consumer-zipkin-greet            | 8989 | ·şÎñÁ´Â·×·×Ù£¬·şÎñ2                 |              |
+| microservice-provider-user               | 8000 | æœåŠ¡æä¾›è€…                  |              |
+| microservice-consumer-zipkin-hi               | 8988 | æœåŠ¡é“¾è·¯è¿½è¸ªï¼ŒæœåŠ¡1                 |              |
+| microservice-consumer-zipkin-greet            | 8989 | æœåŠ¡é“¾è·¯è¿½è¸ªï¼ŒæœåŠ¡2                 |              |
 |                                          |      |                        |                 |
 
-[½Ì³ÌËµÃ÷µØÖ·£¬¾É°æ±¾ÎÄµµ](https://github.com/hemin1003/spring-cloud-book)
+[æ•™ç¨‹è¯´æ˜åœ°å€ï¼Œæ—§ç‰ˆæœ¬æ–‡æ¡£](https://github.com/hemin1003/spring-cloud-book)
 
-## ÆäËû
+## å…¶ä»–
 
-1. [SpringCloud´ÓÈëÃÅµ½¾«Í¨½Ì³Ì](https://blog.csdn.net/hemin1003/article/details/82043611)
+1. [SpringCloudä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹](https://blog.csdn.net/hemin1003/article/details/82043611)
 
-2. [SpringBoot´ÓÈëÃÅµ½¾«Í¨½Ì³Ì](https://blog.csdn.net/hemin1003/article/details/82038244)
+2. [SpringBootä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹](https://blog.csdn.net/hemin1003/article/details/82038244)
 
-3. [SpringCloud Alibaba´ÓÈëÃÅµ½¾«Í¨½Ì³Ì](https://blog.csdn.net/hemin1003/article/details/82043611)
-
-## [¹ØÓÚÎÒ](http://heminit.com/about/)
-
-»¶Ó­½»Á÷ÎÊÌâ£¬¿É¼ÓÎÒµÄ¸öÈËQQ 469580884£¬»òÈººÅ 751925591£¬Ò»ÆğÌ½ÌÖ½»Á÷ÎÊÌâ
-
-[ÎÒµÄ²©¿ÍµØÖ·-²©¿Í×¨¼Ò](http://blog.csdn.net/hemin1003)
-
-[¸öÈËÓòÃû](http://heminit.com)
-
-## ¸ĞĞ»
-Èç¹û¾õµÃÄÚÈİÔŞ£¬Äú¿ÉÒÔÇëÎÒºÈÒ»±­¿§·È£º
-<br/>
-<img src="http://cdn.popstar.toponegames.mobi/img/wechat.jpeg" width="240px" height="240px" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="http://cdn.popstar.toponegames.mobi/img/alipay.jpeg" width="240px" height="240px" />
+3. [SpringCloud Alibabaä»å…¥é—¨åˆ°ç²¾é€šæ•™ç¨‹](https://blog.csdn.net/hemin1003/article/details/82043611)
