@@ -1,6 +1,5 @@
 package com.bjj.model;
 
-import lombok.Data;
 import org.hibernate.validator.constraints.Email;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -16,7 +15,6 @@ import java.util.Map;
 告诉SpringBoot将本类中的所有属性和配置文件中相关的配置进行绑定
 参数 prefix = “bjj” : 将配置文件中的person下面的所有属性一一对应
 */
-@Data //get，set方法
 @Component  //注册bean
 @ConfigurationProperties(prefix = "bjj")   //扫描配置文件
 @Validated  //数据校验
@@ -48,6 +46,46 @@ public class Bjj {
      */
     @Email(message="邮箱格式错误") //name必须是邮箱格式
     private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Map<String, String> getMaps() {
+        return maps;
+    }
+
+    public void setMaps(Map<String, String> maps) {
+        this.maps = maps;
+    }
+
+    public List<Object> getLists() {
+        return lists;
+    }
+
+    public void setLists(List<Object> lists) {
+        this.lists = lists;
+    }
 
     @Override
     public String toString() {
