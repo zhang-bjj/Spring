@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>围观主播</title>
+</head>
+<body>
+<img id="recive" style="width: 640px;height: 480px;">
+<div id="dm" style="idth: 640px;height: 480px;position: absolute;background: rgba(0,0,0,0.3);color: white;top: 0px;left: 0px;overflow: auto;"></div>
+<input type="text" id="msg">
+<button onclick="sendMsg()">发送消息</button>
+<button onclick="clearMsg()">清屏</button>
+<script type="text/javascript">
+	var recive_socket = new WebSocket("ws://localhost:8689/onlineServer");
+	var image = document.getElementById("recive");
+	var dm = document.getElementById("dm");
+	recive_socket.onmessage = function(info){
+		image.src = info.data;
+	}
+	var msg_socket = new WebSocket("ws://localhost:8689/chatRoom");
+	msg_socket.onmessage = function(data){
+		document.getElementById("dm").innerHTML+="&nbsp;"+data.data;
+	}
+	function sendMsg(){
+		var msg = document.getElementById("msg").value;
+		msg_socket.send(msg);
+	}
+	function clearMsg(){
+		document.getElementById("dm").innerHTML = "";
+	}
+</script>
+</body>
+</html>
