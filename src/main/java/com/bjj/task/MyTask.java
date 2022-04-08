@@ -7,6 +7,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
+/**
+ * @Scope("prototype")为多例
+ * @Scope 不要时需要同时去掉 @Component
+ */
 @Component
 @Scope("prototype")
 public class MyTask implements Runnable{

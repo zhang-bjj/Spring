@@ -59,4 +59,13 @@ public class UserController {
         return userService.updateBatch(userList);
     }
 
+    @RequestMapping("/show")
+    public String getShow() {
+        return "show";
+    }
+
+    @RequestMapping("/live")
+    public String getLive() {
+        return "live";
+    }
 }

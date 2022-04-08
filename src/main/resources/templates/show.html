@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>主播开播界面</title>
+</head>
+<body>
+
+<!-- 如何使用浏览器调用设备的摄像头，且能够获取到其他的数据展示出来 -->
+<video src="" id="vi" autoplay style="width:640px;height:480px;border: 1px solid #ccc;"></video>
+<!-- webrtc -->
+<canvas id="output" style="display:none;"></canvas>
+<script type="text/javascript">
+	var back = document.getElementById("output");
+	var backContext = back.getContext("2d");
+	var video = document.getElementById("vi");
+	var socket;
+	var interval;
+	
+	setTimeout("init()",100);
+	
+	function init(){
+		//这个需要浏览器支持
+		socket = new WebSocket("ws://localhost:8689/onlineServer");
+		socket.onopen = onOpen;
+		socket.onclose = onColse;
+	}
+	function onOpen(){
+		//定时传输数据到服务器
+		clearInterval(interval);
+		interval = setInterval(function(){draw()},50);
+	}
+	function onColse(){
+		init();
+	}
+	function draw(){
+		backContext.drawImage(video,0,0,back.width,back.height);
+		//将视频的图像50%的像素发送出去
+		socket.send(back.toDataURL("image/jpeg",0.5));
+	}
+	var success = function(stream){
+		video.src = window.URL.createObjectURL(stream);
+	}
+	
+	//js bom模型
+	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia
+	//
+	navigator.getUserMedia({video:true,audio:true},success,console.log);
+</script>
+
+</body>
+</html>
